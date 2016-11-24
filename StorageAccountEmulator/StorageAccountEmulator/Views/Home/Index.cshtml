@@ -1,11 +1,12 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Contact form";
 }
 
 <div class="jumbotron">
     <h1>Contact form</h1>
     <p>Please fill in the form:</p>
+
     <div class="form-group">
 
         <div class="input-group">
@@ -15,12 +16,21 @@
             <input type="text" class="form-control" placeholder="Last name" aria-describedby="basic-addon1">
         </div>
         <div class="input-group">
-            <input type="text" class="form-control" placeholder="Phone number" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" placeholder="Message" aria-describedby="basic-addon1">
         </div>
 
         <button type="button" class="btn btn-default btn-primary">
             <span aria-hidden="true">Submit</span>
         </button>
+
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+            <p>First name: @Html.TextBox("First name")</p>
+            <p>Last name: @Html.TextBox("Last name")</p>
+            <p>Message: @Html.TextBox("Message")</p>
+            <button type="submit">Submit</button>
+        }
 
     </div>
 </div>
