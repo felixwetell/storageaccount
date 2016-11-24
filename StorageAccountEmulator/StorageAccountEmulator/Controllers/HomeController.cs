@@ -47,5 +47,18 @@ namespace StorageAccountEmulator.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Messages()
+        {
+            List<Model> entityList = new List<Model>();
+
+            TableQuery<Model> query = new TableQuery<Model>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "abc"));
+            foreach (Model entity in table.ExecuteQuery(query))
+            {
+                entityList.Add(entity);
+            }
+            return View(entityList);
+        }
     }
 }

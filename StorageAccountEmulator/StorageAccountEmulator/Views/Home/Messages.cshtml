@@ -1,0 +1,15 @@
+﻿@model List<StorageAccountEmulator.Models.Model>
+@{
+    ViewBag.Title = "Messages";
+}
+
+<div class="jumbotron">
+    <ul class="list-group">
+        @foreach (StorageAccountEmulator.Models.Model entity in Model)
+        {
+            <li class="list-group-item">@entity.FirstName</li>
+            <li class="list-group-item">@entity.LastName</li>
+            <li class="list-group-item">@entity.Message</li>
+        }
+    </ul>
+</div>
